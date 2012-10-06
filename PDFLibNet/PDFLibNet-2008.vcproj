@@ -108,6 +108,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="sn -R $(TargetPath) $(ProjectDir)\PDFLibNet.snk"
 			/>
 		</Configuration>
 		<Configuration
@@ -203,6 +204,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="sn -R $(TargetPath) $(ProjectDir)\PDFLibNet.snk"
 			/>
 		</Configuration>
 		<Configuration
@@ -297,6 +299,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="sn -R $(TargetPath) $(ProjectDir)\PDFLibNet.snk"
 			/>
 		</Configuration>
 	</Configurations>
@@ -343,7 +346,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ExportSWFParams.cpp"
+				RelativePath=".\ExportHtmlParams.h"
 				>
 			</File>
 			<File
@@ -402,10 +405,6 @@
 			>
 			<File
 				RelativePath=".\AutoPtr.h"
-				>
-			</File>
-			<File
-				RelativePath=".\ExportSWFParams.h"
 				>
 			</File>
 			<File

@@ -553,10 +553,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\mupdfEngine.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\OutlineItemA.cpp"
 				>
 			</File>
@@ -578,10 +574,6 @@
 			</File>
 			<File
 				RelativePath=".\PDFTextBlockInterop.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\SaveSWFParams.cpp"
 				>
 			</File>
 			<File
@@ -651,10 +643,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\mupdfEngine.h"
-				>
-			</File>
-			<File
 				RelativePath=".\OutlineItemA.h"
 				>
 			</File>
@@ -683,7 +671,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\SaveSWFParams.h"
+				RelativePath=".\SaveHtmlParams.h"
 				>
 			</File>
 			<File
