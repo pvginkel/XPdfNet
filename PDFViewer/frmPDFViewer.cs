@@ -473,7 +473,6 @@ namespace PDFViewer
                     _pdfDoc.RenderNotifyFinished += new RenderNotifyFinishedHandler(_pdfDoc_RenderNotifyFinished);
                     _pdfDoc.PDFLoadCompeted += new PDFLoadCompletedHandler(_pdfDoc_PDFLoadCompeted);
                     _pdfDoc.PDFLoadBegin += new PDFLoadBeginHandler(_pdfDoc_PDFLoadBegin);
-                    _pdfDoc.UseMuPDF = tsbUseMuPDF.Checked;
                     //}
                     //xPDFParams.ErrorQuiet =true;
                     //xPDFParams.ErrorFile = "C:\\stderr.log";
@@ -556,7 +555,6 @@ namespace PDFViewer
             _pdfDoc.RenderNotifyFinished += new RenderNotifyFinishedHandler(_pdfDoc_RenderNotifyFinished);
             _pdfDoc.PDFLoadCompeted += new PDFLoadCompletedHandler(_pdfDoc_PDFLoadCompeted);
             _pdfDoc.PDFLoadBegin += new PDFLoadBeginHandler(_pdfDoc_PDFLoadBegin);
-            _pdfDoc.UseMuPDF = tsbUseMuPDF.Checked;
 
             try
             {
@@ -565,11 +563,9 @@ namespace PDFViewer
                     fs.Close();
                     fs = null;
                 }
-                //Does not supported by MuPDF.                
                 //fs = new System.IO.FileStream(filename, System.IO.FileMode.Open);                
                 //return pdfDoc.LoadPDF(fs);                
                 bool bRet = _pdfDoc.LoadPDF(fileStream);
-                tsbUseMuPDF.Checked = _pdfDoc.UseMuPDF;
                 return bRet;
             }
             catch (System.Security.SecurityException ex)
@@ -582,7 +578,6 @@ namespace PDFViewer
                     if (!frm.OwnerPassword.Equals(String.Empty))
                         _pdfDoc.OwnerPassword = frm.OwnerPassword;
                     bool bRet = _pdfDoc.LoadPDF(fileStream);
-                    tsbUseMuPDF.Checked = _pdfDoc.UseMuPDF;
                     return bRet;
                 }
                 else
@@ -629,11 +624,9 @@ namespace PDFViewer
                     fs.Close();
                     fs = null;
                 }
-                //Does not supported by MuPDF.                
                 //fs = new System.IO.FileStream(filename, System.IO.FileMode.Open);                
                 //return pdfDoc.LoadPDF(fs);                
                 bool bRet =  pdfDoc.LoadPDF(filename);               
-                tsbUseMuPDF.Checked = pdfDoc.UseMuPDF;
                 return bRet;                
             }
             catch (System.Security.SecurityException)
@@ -833,7 +826,7 @@ namespace PDFViewer
         {
             try
             {
-                Invoke(new frmExportSWF.FinishedInvoker(Render));
+                Invoke(new frmExportJpg.FinishedInvoker(Render));
             }
             catch (Exception) { }
         }
@@ -961,35 +954,6 @@ namespace PDFViewer
                         else if (saveFileDialog1.FileName.EndsWith(".eps"))
                         {
                             //_pdfDoc.ExportEPS(saveFileDialog1.FileName, 1, _pdfDoc.PageCount);
-                        }
-                        else if (saveFileDialog1.FileName.EndsWith(".swf"))
-                        {
-
-                            /*
-                                settings.Loader = @"C:\Users\Antonio\Documents\Visual Studio 2008\Projects\xpdfWin\swftools-0.9.1\swfs\swft_loader.swf";
-                                settings.Viewer = @"C:\Users\Antonio\Documents\Visual Studio 2008\Projects\xpdfWin\swftools-0.9.1\swfs\keyboard_viewer.swf";
-                            
-                                 * 2: Please use -o to specify an output file\n"
-                                3: <error> only one %% allowed in filename
-                                4: <error> -b/-l/-B/-L not supported together with %% in filename
-                                5: "<error> Couldn't open %s", filename
-                                6:  "No pages in range %s", pagerange
-                                7: Error on save
-                                101: <fatal> Can't combine --cat and --frame
-                                102: <error> Can't combine --cat and --merge
-                                103: <error> Can't combine --cat and --stack
-                                104: <error> Can't combine -l and -t
-                                105: <error> Can't combine -c and -t
-                                106: <fatal> Failed to open MasterFile
-                                107: <fatal> Failed to read MasterFile
-                                108: <error> --dummy (-d) implies there are zero slave objects. You supplied num slaves
-                                109: <fatal> Failed to open %s\n", slave_filename[t]
-                                110: "<fatal> Failed to read from %s\n", slave_filename[t]
-                                111: <fatal> Couldn't allocate %d bytes of memory", 65536
-
-                                 */
-                            frmExportSWF frm = new frmExportSWF(_pdfDoc, saveFileDialog1.FileName);
-                            frm.ShowDialog();
                         }
                     }
                 }
@@ -1234,28 +1198,6 @@ namespace PDFViewer
             Bitmap bmp = pg.GetBitmap(96,false);
             bmp.Save("C:\\bmp.png", System.Drawing.Imaging.ImageFormat.Png); */
             
-        }
-
-        private void tsbUseMuPDF_Click(object sender, EventArgs e)
-        {
-            if (_pdfDoc != null)
-            {
-                if (_pdfDoc.SupportsMuPDF)
-                {
-                    bool bs = _pdfDoc.UseMuPDF;
-                    _pdfDoc.UseMuPDF = tsbUseMuPDF.Checked;
-                    if (tsbUseMuPDF.Checked != bs)
-                    {
-                        tsbUseMuPDF.Checked = _pdfDoc.UseMuPDF;
-                        if (PdfOK())
-                        {
-                            _pdfDoc.RenderPage(pageViewControl1.Handle, true);
-                            Render();
-                            pageViewControl1.Invalidate();
-                        }
-                    }
-                }
-            }
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)

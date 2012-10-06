@@ -6,7 +6,6 @@
 //#include "InfoOutputDev.h"
 //#include "GFXOutputDev.h"
 /*#include "gfxdevice.h"
-#include "devices/swf.h"
 #include "devices/rescale.h"
 #include "pdf.h"
 #include "args.h"*/
@@ -596,13 +595,9 @@
 	, __x0(0)
 	, __y0(0)
 	, m_ExportProgressHandle(0)
-	, m_ExportSwfProgressHandle(0)
-	, m_ExportSwfFinishHandle(0)
 	, m_ExportFinishHandle(0)
 	, m_exportJpgThread(0)
-	, m_exportSwfThread(0)
 	, hExportJpgCancel(0)
-	, hExportSwfCancel(0)
 	, _countCached(-1)
 	, m_RenderFinishHandle(0)
 	, m_PageRenderedByThread(0)
@@ -612,10 +607,6 @@
 	, m_renderThumbs(0)
 	, m_thumbOut(0)
 	, m_LastOpenedFile(new GString())
-#ifdef _MUPDF
-	, _mupdf(0)
-#endif
-	, _useMuPDF(false)
 	{
 		
 		// GMutex m;
@@ -646,13 +637,6 @@
 		this->Dispose();
 		gDestroyMutex(&this->hgMutex);
 		CloseHandle(hRenderFinished);
-
-#ifdef _MUPDF
-		if(_mupdf != NULL){
-			delete _mupdf;
-			_mupdf=NULL;
-		}
-#endif
 	}
 	
 	void AFPDFDoc::Dispose()
@@ -680,17 +664,6 @@
 			CloseHandle(m_exportJpgThread);
 			m_exportJpgThread=0;
 		}
-		if(m_exportSwfThread)
-		{
-			DWORD exitcode=0;
-			GetExitCodeThread(m_exportSwfThread,&exitcode);
-			if(exitcode==STILL_ACTIVE){
-				::SetEvent(hExportSwfCancel);
-				::WaitForSingleObject(hExportSwfFinished,INFINITE);
-			}
-			CloseHandle(m_exportSwfThread);
-			m_exportSwfThread=0;
-		}
 
 		if(m_LastOpenedStream)
 		{
@@ -707,11 +680,6 @@
 		{
 			//delete m_splashOut;
 			m_splashOut=0;
-		}
-
-		if(_mupdf!=0){
-			delete _mupdf;
-			_mupdf=0;
 		}
 
 		if (m_PDFDoc!=NULL)
@@ -932,10 +900,6 @@
 		if (m_PDFDoc!=0){
 			delete m_PDFDoc;
 			m_PDFDoc=0;
-		}
-		if(_mupdf!=0){
-			delete _mupdf;
-			_mupdf=0;
 		}
 		
 		//Establecemos el color del papel
@@ -1405,41 +1369,6 @@
 			page = tp->pageToRender;
 			renderDPI=IFZERO(renderDPI,18);
 			page=MAX(1,page);
-#ifdef _MUPDF
-				if(SupportsMuPDF() && GetUseMuPDF()){
-					if(LoadFromMuPDF())
-					{
-#ifdef _MUPDF_GDIPLUS
-						int w =0; int h=0;
-						HBITMAP im = _mupdf->renderBitmap(page,renderDPI/72,m_Rotation,NULL,callbackAbortDisplay,this, &w, &h);
-						tp->out->SetBitmap(im);
-						tp->out->setSize(w,h);
-#else
-						fz_pixmap *im = _mupdf->display(tp->out,page,m_Rotation,renderDPI/72,callbackAbortDisplay,this);
-						tp->out->SetDataPtr((void *)im->samples);
-						tp->out->setSize(im->w,im->h);
-						tp->out->setPixmap(im);
-						
-#endif
-						Page *p = doc->getCatalog()->getPage(page);
-						double ctm[6];
-						double ictm[6];
-						p->getDefaultCTM(ctm,renderDPI,renderDPI,m_Rotation,gFalse,gTrue);
-						tp->out->setDefCTM(ctm);
-						//Invert CTM
-						double det = 1 / (ctm[0] * ctm[3] - ctm[1] * ctm[2]);
-						ictm[0] = ctm[3] * det;
-						ictm[1] = -ctm[1] * det;
-						ictm[2] = -ctm[2] * det;
-						ictm[3] = ctm[0] * det;
-						ictm[4] = (ctm[2] * ctm[5] - ctm[3] * ctm[4]) * det;
-						ictm[5] = (ctm[1] * ctm[4] - ctm[0] * ctm[5]) * det;
-						tp->out->setDefICTM(ictm);
-
-						render =false;
-					}
-				}
-#endif			
 			if(render && doc->getCatalog() && doc->getCatalog()->isOk())
 			{
 				Page *p = doc->getCatalog()->getPage(page);
@@ -1497,32 +1426,6 @@
 				page = param->pageToRender;
 				renderDPI=IFZERO(renderDPI,18);
 				page=MAX(1,page);
-#ifdef _MUPDF
-				if(param->pdfDoc->SupportsMuPDF() && param->pdfDoc->GetUseMuPDF() && param->pdfDoc->LoadFromMuPDF())
-				{
-
-					fz_pixmap *im = param->pdfDoc->_mupdf->display(param->out,page,param->pdfDoc->m_Rotation,renderDPI/72,callbackAbortDisplay,param->pdfDoc);
-					param->out->SetDataPtr((void *)im->samples);
-					param->out->setSize(im->w,im->h);
-					param->out->setPixmap(im);
-
-					Page *p = doc->getCatalog()->getPage(page);
-					double ctm[6];
-					double ictm[6];
-					p->getDefaultCTM(ctm,renderDPI,renderDPI,param->pdfDoc->m_Rotation,gFalse,gTrue);
-					param->out->setDefCTM(ctm);
-					//Invert CTM
-					double det = 1 / (ctm[0] * ctm[3] - ctm[1] * ctm[2]);
-					ictm[0] = ctm[3] * det;
-					ictm[1] = -ctm[1] * det;
-					ictm[2] = -ctm[2] * det;
-					ictm[3] = ctm[0] * det;
-					ictm[4] = (ctm[2] * ctm[5] - ctm[3] * ctm[4]) * det;
-					ictm[5] = (ctm[1] * ctm[4] - ctm[0] * ctm[5]) * det;
-					param->out->setDefICTM(ictm);
-					render =false;
-				}
-#endif
 #define MULTITHREADED
 				if(render && doc->getCatalog() && doc->getCatalog()->isOk()){
 					Page *p = doc->getCatalog()->getPage(page);
@@ -1587,54 +1490,6 @@
 			//globalParams->setPrintCommands(gTrue);
 			pdfDoc->m_LastPageRenderedByThread=page;
 
-#ifdef _MUPDF
-			if(pdfDoc->SupportsMuPDF() && pdfDoc->GetUseMuPDF()){
-				if(pdfDoc->LoadFromMuPDF())
-				{
-#ifdef _MUPDF_GDIPLUS
-					fz_rect *fzRect = NULL;
-					if(param->sliceBox->NotEmpty())
-					{
-						fzRect = new fz_rect();
-						fzRect->x0 = param->sliceBox->left;
-						fzRect->x1 = param->sliceBox->right;
-						fzRect->y0 = param->sliceBox->top;
-						fzRect->y1 = param->sliceBox->bottom;
-					}
-					
-					int w =0; int h=0;
-					HBITMAP im = pdfDoc->_mupdf->renderBitmap(page,renderDPI/72,pdfDoc->m_Rotation,fzRect,callbackAbortDisplay,pdfDoc, &w, &h);
-					param->out->SetBitmap(im);
-					param->out->setSize(w,h);
-#else
-					fz_pixmap *im = pdfDoc->_mupdf->display(param->out,page,pdfDoc->m_Rotation,renderDPI/72,callbackAbortDisplay,pdfDoc);
-					if(im!=NULL){
-						param->out->SetDataPtr((void *)im->samples);
-						param->out->setSize(im->w,im->h);
-						param->out->setPixmap(im);
-					}
-#endif
-					if(im!=NULL)
-					{
-						Page *p = pdfDoc->m_PDFDoc->getCatalog()->getPage(page);
-						double ctm[6];
-						double ictm[6];
-						p->getDefaultCTM(ctm,renderDPI,renderDPI,pdfDoc->m_Rotation,gFalse,gTrue);
-						param->out->setDefCTM(ctm);
-						//Invert CTM
-						double det = 1 / (ctm[0] * ctm[3] - ctm[1] * ctm[2]);
-						ictm[0] = ctm[3] * det;
-						ictm[1] = -ctm[1] * det;
-						ictm[2] = -ctm[2] * det;
-						ictm[3] = ctm[0] * det;
-						ictm[4] = (ctm[2] * ctm[5] - ctm[3] * ctm[4]) * det;
-						ictm[5] = (ctm[1] * ctm[4] - ctm[0] * ctm[5]) * det;
-						param->out->setDefICTM(ictm);
-						render =false;
-					}
-				}
-			}
-#endif
 			if(render)
 			{
 				if(pdfDoc->m_PDFDoc->getCatalog() && pdfDoc->m_PDFDoc->getCatalog()->isOk())
@@ -1670,26 +1525,6 @@
 		}
 		return true;
 	}
-
-	bool AFPDFDoc::LoadFromMuPDF(){
-#ifdef _MUPDF
-		if(_mupdf == NULL){
-			_mupdf = new mupdfEngine();
-			if(this->_mupdf->LoadFile(this->m_LastOpenedFile->getCString(), (char *) (const char *)m_OwnerPassword, (char *)(const char *)m_UserPassword)){
-				delete _mupdf;
-				_mupdf=NULL;
-			}
-			//m_OwnerPassword.ReleaseBuffer();
-			//m_UserPassword.ReleaseBuffer();
-		}
-		return _mupdf!=NULL;
-#else
-		return false;
-#endif
-
-	}
-
-
 
 	long AFPDFDoc::GetCurrentPage(void)
 	{
@@ -2843,10 +2678,6 @@
 		}
 	}
 
-	void AFPDFDoc::CancelSwfSave(){
-		SetEvent(this->hExportSwfCancel);
-	}
-
 	void AFPDFDoc::CancelJpgSave(){
 		SetEvent(this->hExportJpgCancel);
 	}
@@ -3113,18 +2944,6 @@
 	}
 
 
-	bool AFPDFDoc::SwfIsBusy()
-	{
-		if(m_exportSwfThread!=0){
-			DWORD exitcode=0;
-			GetExitCodeThread(m_exportSwfThread,&exitcode);
-			if (exitcode==STILL_ACTIVE){	
-				return true;
-			}
-		}
-		return false;
-	}
-
 	//Returns true if exists a background thread of jpg export is running
 	bool AFPDFDoc::JpgIsBusy(){
 		if(m_exportJpgThread!=0){
@@ -3160,183 +2979,3 @@
 
 	bool AFPDFDoc::getNeedNonText(){ return _needNonText; }
 	void AFPDFDoc::setNeedNonText(bool needs) { _needNonText = needs; }
-
-	int AFPDFDoc::SaveSWF(char *fileName, SaveSWFParams *params)
-	{
-#define strcat(b, s)  if((strlen(b) + strlen(s)) >= bufSize) { b = resizeString(b, bufSize, bufSize*2); bufSize*=2; } if(b=="\0") sprintf_s(b,bufSize,s); else strcat_s(b, bufSize, s); 
-		const size_t tmpBufSize = 2048;
-		size_t bufSize = 128;
-		char *buf = new char[bufSize]; 
-		char *bufTmp = new char[tmpBufSize];
-		
-		sprintf_s(buf, bufSize, "pdf2swf|-k|");
-		if(params->useDefaultLoadAndViewer && !params->loaderSWF 
-		&& !params->viewerSWF)		{	strcat(buf, "-b|-l|");	}
-		if(params->zip)				{	strcat(buf, "-z|");		}
-		if(params->linkSameWindow)	{	strcat(buf, "-w|");		}
-		if(params->addPageStop)		{	strcat(buf, "-t|");		}
-		if(params->fontsToShapes)	{	strcat(buf, "-S|");		}
-		if(params->swfFlatten)		{	strcat(buf, "-G|");		}
-		if(params->storeFonts)		{	strcat(buf, "-f|");		}
-		if(params->ignoreDrawOrder)	{	strcat(buf, "-i|");		}
-
-		if(params->jpegQuality > 0 && params->jpegQuality <= 100)
-		{
-			sprintf_s(bufTmp, tmpBufSize, "-j|%d|", params->jpegQuality);
-			strcat(buf, bufTmp);
-		}
-		if(params->swfVersion >0)
-		{
-			sprintf_s(bufTmp, tmpBufSize, "-T|%d|", params->swfVersion);
-			strcat(buf, bufTmp);
-		}
-		if(params->loaderSWF != NULL && params->viewerSWF != NULL)
-		{
-			sprintf_s(bufTmp, tmpBufSize, "-L|%s|-B|%s|",params->loaderSWF, params->viewerSWF);
-			strcat(buf, bufTmp);
-		}
-
-		if(params->pageRange != NULL)
-		{
-			sprintf_s(bufTmp, tmpBufSize, "-p|%s|", params->pageRange);
-			strcat(buf, bufTmp);
-		}
-		
-		if(params->linkColor != NULL || params->dpi != 72.0 || !params->enableLinks)
-		{
-			strcat(buf, "-s ");
-		}
-		if(params->linkColor != NULL)
-		{
-			sprintf_s(bufTmp, tmpBufSize, "linkcolor=%s|", params->linkColor);
-			strcat(buf, bufTmp);
-		}
-		if(params->dpi != 72.0)
-		{
-			sprintf_s(bufTmp, tmpBufSize, "zoom=%f|", params->dpi);
-			strcat(buf, bufTmp);
-		}
-		if(!params->enableLinks)
-		{
-			strcat(buf, "disablelinks|");
-		}
-		
-		if(this->m_LastOpenedStream)
-		{
-			strcat(buf, "BaseStream");
-		}
-		else if(this->m_LastOpenedFile != NULL)
-		{
-			strcat(buf, this->m_LastOpenedFile->getCString());
-		}else
-		{
-			return -2; //no file
-		}
-
-		sprintf_s(bufTmp, tmpBufSize, "|-o|%s", fileName);
-		strcat(buf, bufTmp);
-		PDFDoc *pdfDoc = this->createDoc(NULL);
-#ifdef _PDF2SWF
-		if(params->enableThread)
-		{
-			int cCount=0;
-			char *fileNameCopy = new char[strlen(fileName)];
-			char **argv = ::splitString(buf, "|", &cCount);
-			strcpy(fileNameCopy, (const char *)fileName);
-
-			ExportSWFParams *p = new ExportSWFParams();
-			p->doc = pdfDoc;
-			p->argc = cCount;
-			p->argv = argv;
-			p->fileName  = fileNameCopy;
-			
-
-			if (m_renderingThread!=0)
-			{
-				DWORD exitcode=0;
-				//hurry up!
-				GetExitCodeThread(m_renderingThread,&exitcode);
-				if(exitcode==STILL_ACTIVE)
-					SetThreadPriority(m_renderingThread,THREAD_PRIORITY_ABOVE_NORMAL);
-				while (exitcode==STILL_ACTIVE){
-					
-					GetExitCodeThread(m_renderingThread,&exitcode);
-					Sleep(50);
-				}
-				CloseHandle(m_renderingThread);
-				m_renderingThread=NULL;
-			}
-
-			if(m_exportSwfThread!=0){
-				DWORD exitcode=0;
-				GetExitCodeThread(m_exportSwfThread,&exitcode);
-				if (exitcode==STILL_ACTIVE){	
-					//Cancel event
-					SetEvent(this->hExportSwfCancel);
-					//Wait for finished
-					WaitForSingleObject(this->hExportSwfFinished,INFINITE);
-				}
-				CloseHandle(m_exportSwfThread);
-				m_exportSwfThread=0;
-
-			}
-			
-			if(this->hExportSwfCancel ==0){
-				this->hExportSwfCancel = CreateEvent(NULL,TRUE,FALSE,TEXT("CancelSwflEvent"));
-				this->hExportSwfCancelled = CreateEvent(NULL,TRUE,FALSE,TEXT("CancelledSwfEvent"));
-				this->hExportSwfFinished = CreateEvent(NULL,TRUE,FALSE,TEXT("FinishedSwfEvent"));
-			}
-			ResetEvent(this->hExportSwfCancel);
-			ResetEvent(this->hExportSwfCancelled);
-			ResetEvent(this->hExportSwfFinished);
-
-			p->m_ExportSwfProgressHandle = this->m_ExportSwfProgressHandle;
-			p->m_ExportSwfFinishHandle = this->m_ExportSwfFinishHandle;
-			p->hExportSwfCancel = this->hExportSwfCancel;
-			p->hExportSwfCancelled = this->hExportSwfCancelled;
-			p->hExportSwfFinished = this->hExportSwfFinished;
-
-			DWORD dThread;
-			DWORD waitProc = 0;
-			DWORD waitRes = 0;
-			m_exportSwfThread = CreateThread(NULL,0,(LPTHREAD_START_ROUTINE)AFPDFDoc::ExportingSWFThread,(LPVOID)p,THREAD_PRIORITY_NORMAL,&dThread);
-
-			if(waitProc==-1){
-				waitRes = ::WaitForSingleObject(this->hExportJpgFinished,INFINITE);
-			}else if(waitProc>0){
-				waitRes = ::WaitForSingleObject(this->hExportJpgFinished,waitProc);
-			}
-
-			return waitRes;
-		}
-		else
-		{
-		
-			int cCount=0;
-			char **argv = ::splitString(buf, "|", &cCount);
-			int ret = mainPDF2SWF(cCount, argv, NULL,  pdfDoc, NULL);
-			delete buf;
-			delete bufTmp;
-			delete [] argv;
-			return ret;	
-		}
-#else
-			return -1;
-#endif
-		
-	}
-
-	UINT AFPDFDoc::ExportingSWFThread( LPVOID param )
-	{
-		ExportSWFParams *p = (ExportSWFParams *)param;
-		PDFDoc *pdfDoc = p->doc;
-		char **argv = p->argv;
-		int cCount = p->argc;
-
-		int ret = mainPDF2SWF(cCount, argv, NULL,  pdfDoc, p);
-
-		delete [] argv;
-		delete p;
-
-		return ret;
-	}

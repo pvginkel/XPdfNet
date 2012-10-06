@@ -585,14 +585,12 @@
       <AssemblerOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AssemblyAndSourceCode</AssemblerOutput>
     </ClCompile>
     <ClCompile Include="LinkInterop.cpp" />
-    <ClCompile Include="mupdfEngine.cpp" />
     <ClCompile Include="OutlineItemA.cpp" />
     <ClCompile Include="OutlineItemInterop.cpp" />
     <ClCompile Include="PageLinksInterop.cpp" />
     <ClCompile Include="PageMemory.cpp" />
     <ClCompile Include="PDFPageInterop.cpp" />
     <ClCompile Include="PDFTextBlockInterop.cpp" />
-    <ClCompile Include="SaveSWFParams.cpp" />
     <ClCompile Include="SearchResultInterop.cpp" />
     <ClCompile Include="StreamCallback.cpp" />
     <ClCompile Include="UnicodeString.cpp" />
@@ -610,7 +608,6 @@
     <ClInclude Include="jpeg.h" />
     <ClInclude Include="LinkDestInterop.h" />
     <ClInclude Include="LinkInterop.h" />
-    <ClInclude Include="mupdfEngine.h" />
     <ClInclude Include="OutlineItemA.h" />
     <ClInclude Include="OutlineItemInterop.h" />
     <ClInclude Include="PageLinksInterop.h" />
@@ -618,7 +615,6 @@
     <ClInclude Include="PDFPageInterop.h" />
     <ClInclude Include="PDFTextBlockInterop.h" />
     <ClInclude Include="Queue.h" />
-    <ClInclude Include="SaveSWFParams.h" />
     <ClInclude Include="SearchResultInterop.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="StreamCallback.h" />
@@ -626,14 +622,6 @@
     <ClInclude Include="XPDFParamsInterop.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\mupdf\mupdf-2008.vcxproj">
-      <Project>{63657c80-eadb-4fbc-a557-be52f318ccdd}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\swftools-0.9.1\pdf2swf.vcxproj">
-      <Project>{1778c608-bd7f-4e4a-a4da-0d861992f46b}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
     <ProjectReference Include="..\xpdfWin\xpdfWin-2008.vcxproj">
       <Project>{05e39e0d-7fc0-4b90-a43b-355c6b8bf0e6}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>

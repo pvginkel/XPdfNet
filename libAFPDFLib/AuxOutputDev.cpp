@@ -9,20 +9,11 @@ AuxOutputDev::AuxOutputDev(SplashOutputDev *splash)
 , _height(0)
 , _antialias(gTrue)
 , _isBitmap(false)
-#ifdef _MUPDF
-, _pixmap(NULL)
-#endif
 {
 }
 
 AuxOutputDev::~AuxOutputDev()
 {
-#ifdef _MUPDF
-	if(_pixmap!=NULL){
-		::fz_droppixmap(_pixmap);
-		_pixmap=NULL;
-	}
-#endif
 	if(_splash!=NULL){
 		delete _splash;
 		_splash=NULL;
@@ -66,9 +57,3 @@ void AuxOutputDev::cvtUserToDev(double ux, double uy, int *dx, int *dy){
 	*dy = (int)(_ctm[1] * ux + _ctm[3] * uy + _ctm[5] + 0.5);
 }
 	
-#ifdef _MUPDF
-	//muPDF
-void AuxOutputDev::startDoc(pdf_xref *xrefA)
-{}
-
-#endif

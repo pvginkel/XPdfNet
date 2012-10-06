@@ -1,5 +1,4 @@
 #include "PDFWrapper.h"
-#include "ExportSWFParams.h"
 
 using namespace System::Runtime::InteropServices;
 
@@ -434,26 +433,6 @@ namespace PDFLibNet{
 		}
 	}
 
-	bool PDFWrapper::_ExportSwfProgress(int pageCount, int currentPage)
-	{
-		unsigned int i=0;
-		if(_evExportSwfProgress!=nullptr){
-			for each(ExportJpgProgressHandler^ dd in _evExportSwfProgress->GetInvocationList()){
-				dd->Invoke(pageCount,currentPage);
-			}
-		}
-		return true;
-	}
-	void PDFWrapper::_ExportSwfFinished()
-	{
-		unsigned int i=0;
-		if(_evExportSwfFinished!=nullptr){
-			for each(ExportJpgFinishedHandler^ dd in _evExportSwfFinished->GetInvocationList()){
-				dd->Invoke();
-			}
-		}
-	}
-
 	void PDFWrapper::_RenderFinished()
 	{
 		unsigned int i=0;
@@ -472,33 +451,6 @@ namespace PDFLibNet{
 				dd->Invoke(p,b);
 			}
 		}
-	}
-
-	long PDFWrapper::ExportSWF(System::String ^fileName, ExportSWFParams ^params)
-	{
-		IntPtr ptr = Marshal::StringToCoTaskMemAnsi(fileName);
-		char *singleByte= (char*)ptr.ToPointer();
-		
-		long ret=0;
-		try{
-			if(this->_internalExportSwfProgress==nullptr){		
-				_internalExportSwfProgress=gcnew ExportJpgProgressHandler(this,&PDFWrapper::_ExportSwfProgress);
-				_gchSwfProgress = GCHandle::Alloc(_internalExportSwfProgress);
-			}
-			if(this->_internalExportSwfFinished==nullptr){
-				_internalExportSwfFinished=gcnew ExportJpgFinishedHandler(this,&PDFWrapper::_ExportSwfFinished);
-				_gchSwfFinished = GCHandle::Alloc(_internalExportSwfFinished);
-			}
-			
-			_pdfDoc->SetExportSwfFinishedHandler(Marshal::GetFunctionPointerForDelegate(_internalExportSwfFinished).ToPointer());
-			_pdfDoc->SetExportSwfProgressHandler(Marshal::GetFunctionPointerForDelegate(_internalExportSwfProgress).ToPointer());
-
-			ret = _pdfDoc->SaveSWF(singleByte, params->getParams());
-		}finally{
-			Marshal::FreeCoTaskMem(ptr);
-		}
-		return ret;		
-
 	}
 
 

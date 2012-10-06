@@ -17,3 +17,6 @@ using namespace System::Reflection;
 [assembly: AssemblyTrademark("xPDF")];
 [assembly: AssemblyCulture("")];
 [assembly: AssemblyVersion("1.0.6.8")];
+
+[assembly: AssemblyKeyFileAttribute("PDFLibNet.snk")];
+[assembly: AssemblyDelaySignAttribute(true)];

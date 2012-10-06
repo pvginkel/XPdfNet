@@ -8,7 +8,7 @@
 #include "PageLinkCollection.h"
 #include "LinkDest.h"
 #include "PDFPage.h"
-#include "ExportSWFParams.h"
+#include "ExportHtmlParams.h"
 
 using namespace System;
 using namespace System::Drawing;
@@ -68,27 +68,16 @@ namespace PDFLibNet {
 		void _RenderFinished();
 		void _RenderNotifyFinished(int, bool);
 
-		bool _ExportSwfProgress(int pageCount, int currentPage);
-		void _ExportSwfFinished();
-
 		ExportJpgProgressHandler ^_internalExportJpgProgress;
 		ExportJpgProgressHandler ^_evExportJpgProgress;
 		ExportJpgFinishedHandler ^_internalExportJpgFinished;
 		ExportJpgFinishedHandler ^_evExportJpgFinished;
-
-		ExportJpgProgressHandler ^_internalExportSwfProgress;
-		ExportJpgProgressHandler ^_evExportSwfProgress;
-		ExportJpgFinishedHandler ^_internalExportSwfFinished;
-		ExportJpgFinishedHandler ^_evExportSwfFinished;
 
 		RenderFinishedHandler ^_internalRenderFinished;
 		RenderFinishedHandler ^_evRenderFinished;
 
 		RenderNotifyFinishedHandler ^_internalRenderNotifyFinished;
 		RenderNotifyFinishedHandler ^_evRenderNotifyFinished;
-
-		GCHandle _gchSwfProgress;
-		GCHandle _gchSwfFinished;
 
 		GCHandle _gchProgress;
 		GCHandle _gchFinished;
@@ -159,10 +148,6 @@ namespace PDFLibNet {
 		long ExportJpg(System::String ^fileName,System::Int32 fromPage, System::Int32 toPage, System::Double renderDPI, System::Int32 quality);
 		long ExportJpg(System::String ^fileName,System::Int32 fromPage, System::Int32 toPage, System::Double renderDPI, System::Int32 quality, System::Int32 waitProc);
 
-		void CancelSwfExport(){
-			_pdfDoc->CancelSwfExport();
-		}
-
 		void CancelJpgExport(){
 			_pdfDoc->CancelJpgExport();
 		}
@@ -172,29 +157,6 @@ namespace PDFLibNet {
 				return %_pages;
 			}
 
-		}
-
-		property bool SupportsMuPDF{
-			bool get(){
-				return _pdfDoc->GetSupportsMuPDF();
-			}
-		}
-		property bool UseMuPDF{
-			bool get(){
-				return _pdfDoc->GetUseMuPDF();
-			}
-			void set(bool bUse){
-				_pdfDoc->SetUseMuPDF(bUse);
-			}
-		}
-		
-		///<sumary>
-		/// Returns true if exist a background process exporting to jpeg
-		///</sumary>
-		property bool IsSwfBusy{
-			bool get(){
-				return _pdfDoc->IsSwfBusy();
-			}
 		}
 
 		///<sumary>
@@ -210,7 +172,6 @@ namespace PDFLibNet {
 				return _pdfDoc->IsBusy();
 			}
 		}
-		long ExportSWF(System::String ^fileName, ExportSWFParams ^exportParams);
 		long ExportText(System::String ^fileName, System::Int32 firstPage, System::Int32 lastPage,System::Boolean physLayout,System::Boolean rawOrder);
 		long ExportHtml(System::String ^fileName, System::Int32 firstPage, System::Int32 lastPage, ExportHtmlParams ^params);
 		long PerfomLinkAction(System::Int32 linkPtr);
@@ -561,39 +522,6 @@ namespace PDFLibNet {
 
 		}
 
-		event ExportJpgProgressHandler ^ExportSwfProgress{
-			void add(ExportJpgProgressHandler ^ ev){
-				this->_evExportSwfProgress += ev;
-			}
-			void remove(ExportJpgProgressHandler ^ev){
-				this->_evExportSwfProgress -= ev;
-			}
-			 bool raise(int a,int b) {
-				 ExportJpgProgressHandler^ tmp = _evExportSwfProgress;
-				 if (tmp) {
-					return tmp->Invoke(a,b);
-				 }
-				 return false;
-			  }
-
-		}
-
-
-		event ExportJpgFinishedHandler ^ExportSwfFinished{
-			void add(ExportJpgFinishedHandler ^ev){
-				_evExportSwfFinished+=ev;
-			}
-			void remove(ExportJpgFinishedHandler ^ev){
-				_evExportSwfFinished-=ev;
-			}
-			void raise()
-			{
-				ExportJpgFinishedHandler ^tmp =_evExportSwfFinished;
-				if(tmp)
-					_evExportSwfFinished->Invoke();
-			}
-
-		}
 
 		event ExportJpgFinishedHandler ^ExportJpgFinished{
 			void add(ExportJpgFinishedHandler ^ev){
@@ -623,10 +551,6 @@ namespace PDFLibNet {
 				_gchProgress.Free();
 			if(_gchFinished.IsAllocated)
 				_gchFinished.Free();
-			if(_gchSwfProgress.IsAllocated)
-				_gchSwfProgress.Free();
-			if(_gchSwfFinished.IsAllocated)
-				_gchSwfFinished.Free();
 			if(_binaryReader!=nullptr)
 			{
 				_binaryReader->Close();

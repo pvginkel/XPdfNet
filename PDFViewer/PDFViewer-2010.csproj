@@ -9,7 +9,7 @@
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
-    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
@@ -143,12 +143,6 @@
     <Compile Include="PJLControls\ColourPicker.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="frmExportSWF.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmExportSWF.Designer.cs">
-      <DependentUpon>frmExportSWF.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmExportJpg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,10 +215,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PJLControls\ColourPicker.resx">
       <DependentUpon>ColourPicker.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmExportSWF.resx">
-      <DependentUpon>frmExportSWF.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmExportJpg.es.resx">

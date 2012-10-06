@@ -69,7 +69,6 @@ namespace PDFViewer
             this.tsbAntialias = new System.Windows.Forms.ToolStripButton();
             this.tsbVectorAntialias = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.tsbUseMuPDF = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
@@ -397,7 +396,6 @@ namespace PDFViewer
             this.tsbAntialias,
             this.tsbVectorAntialias,
             this.toolStripButton4,
-            this.tsbUseMuPDF,
             this.toolStripButton5,
             this.tsbAbout});
             this.toolStrip1.Name = "toolStrip1";
@@ -553,17 +551,6 @@ namespace PDFViewer
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
-            // tsbUseMuPDF
-            // 
-            this.tsbUseMuPDF.AccessibleDescription = null;
-            this.tsbUseMuPDF.AccessibleName = null;
-            resources.ApplyResources(this.tsbUseMuPDF, "tsbUseMuPDF");
-            this.tsbUseMuPDF.BackgroundImage = null;
-            this.tsbUseMuPDF.CheckOnClick = true;
-            this.tsbUseMuPDF.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbUseMuPDF.Name = "tsbUseMuPDF";
-            this.tsbUseMuPDF.Click += new System.EventHandler(this.tsbUseMuPDF_Click);
-            // 
             // toolStripButton5
             // 
             this.toolStripButton5.AccessibleDescription = null;
@@ -683,7 +670,6 @@ namespace PDFViewer
         private System.Windows.Forms.TabPage tabPage2;
         private System.ComponentModel.BackgroundWorker bgLoadPages;
         private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.ToolStripButton tsbUseMuPDF;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.TabPage tpWordList;

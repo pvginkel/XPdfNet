@@ -192,10 +192,6 @@ void AFPDFDocInterop::SetSearchCaseSensitive(bool newVal){
 	long AFPDFDocInterop::SaveJpg(char *fileName,int firstPage, int lastPage,float renderDPI, int quality, int waitProc){
 		return ((AFPDFDoc *)_ptr)->SaveJpg(fileName,renderDPI,firstPage,lastPage,quality,waitProc);
 	}
-	long AFPDFDocInterop::SaveSWF(char *fileName, SaveSWFParams *params)
-	{
-		return ((AFPDFDoc  *)_ptr)->SaveSWF(fileName, params);
-	}
 	
 	long AFPDFDocInterop::SaveTxt(char *fileName,int firstPage, int lastPage,bool physLayout, bool rawOrder,bool htmlMeta){
 		return ((AFPDFDoc *)_ptr)->SaveTxt(fileName,firstPage,lastPage,htmlMeta,physLayout,rawOrder);
@@ -269,28 +265,11 @@ void AFPDFDocInterop::SetSearchCaseSensitive(bool newVal){
 	void AFPDFDocInterop::SetRenderNotifyFinishedHandler(void *handler){
 		((AFPDFDoc *)_ptr)->m_RenderNotifyFinishHandle = static_cast<PAGERENDERNOTIFY>(handler);
 	}
-
-	void AFPDFDocInterop::SetExportSwfFinishedHandler(void *handler){
-		((AFPDFDoc *)_ptr)->m_ExportSwfFinishHandle = static_cast<NOTIFYHANDLE>(handler);
-	}
 	
-	void AFPDFDocInterop::SetExportSwfProgressHandler(void *handler){
-		((AFPDFDoc *)_ptr)->m_ExportSwfProgressHandle = static_cast<PROGRESSHANDLE>(handler);
-	}
-	
-	void AFPDFDocInterop::CancelSwfExport()
-	{
-		((AFPDFDoc *)_ptr)->CancelSwfSave();
-	}
-
 	void AFPDFDocInterop::CancelJpgExport(){
 		((AFPDFDoc *)_ptr)->CancelJpgSave();
 	}
 
-	//Returns true if there is a process running
-	bool AFPDFDocInterop::IsSwfBusy(){
-		return ((AFPDFDoc *)_ptr)->SwfIsBusy();
-	}
 	//Returns true if there is a process running
 	bool AFPDFDocInterop::IsJpgBusy(){
 		return ((AFPDFDoc *)_ptr)->JpgIsBusy();
@@ -322,18 +301,3 @@ void AFPDFDocInterop::SetSearchCaseSensitive(bool newVal){
 		return doc->ThumbInQueue(page);
 	}
 
-	bool AFPDFDocInterop::GetSupportsMuPDF()
-	{
-		AFPDFDoc *doc =((AFPDFDoc *)_ptr);
-		return doc->SupportsMuPDF();
-	}
-	bool AFPDFDocInterop::GetUseMuPDF()
-	{
-		AFPDFDoc *doc =((AFPDFDoc *)_ptr);
-		return doc->GetUseMuPDF();
-	}
-	void AFPDFDocInterop::SetUseMuPDF(bool bUse)
-	{
-		AFPDFDoc *doc =((AFPDFDoc *)_ptr);
-		doc->SetUseMuPDF(bUse);
-	}

@@ -1,14 +1,6 @@
 #pragma once
 #include "stdafx.h"
 
-#ifdef _MUPDF
-extern "C"
-{
-	#include <fitz.h>
-	#include <mupdf.h>
-}
-#endif
-
 class AuxOutputDev
 {
 private:
@@ -57,12 +49,4 @@ public:
 	// Convert between device and user coordinates.
 	virtual void cvtDevToUser(double dx, double dy, double *ux, double *uy);
 	virtual void cvtUserToDev(double ux, double uy, int *dx, int *dy);
-	
-#ifdef _MUPDF
-	//muPDF
-	void startDoc(pdf_xref *xrefA);
-	void setPixmap(fz_pixmap *pixmap){ _pixmap=pixmap; }
-private:
-	fz_pixmap *_pixmap;
-#endif
 };

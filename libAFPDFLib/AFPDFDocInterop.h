@@ -3,7 +3,6 @@
 #include "SearchResultInterop.h"
 #include "PageLinksInterop.h"
 #include "PDFPageInterop.h"
-#include "SaveSWFParams.h"
 
 typedef int (__stdcall *NOTIFYHANDLE)();
 typedef int (__stdcall *PROGRESSHANDLE)(int, int);
@@ -33,7 +32,6 @@ public:
 	long SaveTxt(char *fileName,int firstPage, int lastPage,bool physLayout, bool rawOrder,bool htmlMeta);
 	long SaveHtml(char *outFileName, int firstPage, int lastPage, double zoom, bool noFrames, bool complexMode, bool htmlLinks,bool ignoreImages, bool outputHiddenText, char *encName, char *imgExt, int jpegQuality);
 	long SaveXML(char *outFilename, int firstPage, int lastPage, char *encName);
-	long SaveSWF(char *fileName, SaveSWFParams *params);
 
 	void CancelJpgExport();
 	void SetExportProgressHandler(void *);
@@ -42,12 +40,6 @@ public:
 	void SetRenderNotifyFinishedHandler(void *);
 
 	
-	void CancelSwfExport();
-	void SetExportSwfProgressHandler(void *);
-	void SetExportSwfFinishedHandler(void *);
-	//Returns true if there is a process running
-	bool IsSwfBusy();
-
 	//Returns true if there is a process running
 	bool IsJpgBusy();
 	//Returns true if there is a background thread rendering next page
@@ -122,9 +114,5 @@ public:
 	wchar_t *GetProducer();
 	char *GetCreationDate();
 	char *GetLastModifiedDate();
-	
-	bool GetSupportsMuPDF();
-	bool GetUseMuPDF();
-	void SetUseMuPDF(bool bUse);
 };
 

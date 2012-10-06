@@ -9,15 +9,8 @@
 #include "queue.h"
 #include "CRect.h"
 #include "AuxOutputDev.h"
-#include "SaveSWFParams.h"
 #include "../pdf2html/pdftohtml.h" 
 
-#ifdef _PDF2SWF
-	#include "../swftools-0.9.1/pdf2swf.h"
-#endif
-#ifdef _MUPDF
-	#include "mupdfEngine.h"
-#endif
 #include "UnicodeString.h"
 
 void InitGlobalParams(char *configFile);
@@ -43,9 +36,6 @@ public:
  class AFPDFDoc 
 {
 private:
-	#ifdef _MUPDF
-		mupdfEngine *_mupdf;
-	#endif
 	PageMemory	*_bitmapCache[MAX_BITMAP_CACHE+1];
 	int			 _pageCached[MAX_BITMAP_CACHE+1];
 	int			 _countCached;
@@ -65,7 +55,6 @@ protected:
 	static UINT RenderingThreadThumb( LPVOID param );
 	static GBool callbackAbortDisplay(void *data);
 	static UINT ExportingJpgThread( LPVOID param );
-	static UINT ExportingSWFThread( LPVOID param );
 	bool m_PageRenderedByThread;
 	bool getNeedNonText();
 	void setNeedNonText(bool needs);
@@ -75,18 +64,11 @@ protected:
 	HANDLE hExportJpgCancelled;
 	HANDLE hExportJpgFinished;
 
-	HANDLE hExportSwfCancel;
-	HANDLE hExportSwfCancelled;
-	HANDLE hExportSwfFinished;
-
 	CRITICAL_SECTION hgMutex;
 	PDFDoc *createDoc(char *FileName);
 public:
 	PROGRESSHANDLE m_ExportProgressHandle;
 	NOTIFYHANDLE m_ExportFinishHandle;
-
-	PROGRESSHANDLE m_ExportSwfProgressHandle;
-	NOTIFYHANDLE m_ExportSwfFinishHandle;
 
 	NOTIFYHANDLE m_RenderFinishHandle;
 	PAGERENDERNOTIFY m_RenderNotifyFinishHandle;
@@ -95,7 +77,6 @@ private:
 	BaseStream *m_LastOpenedStream;
 	HANDLE m_renderingThread;
 	HANDLE m_exportJpgThread;
-	HANDLE m_exportSwfThread;
 	HANDLE m_renderThumbs;
 	Queue m_QueuedThumbs;
 	DynArray<CPDFSearchResult> m_Selection;
@@ -149,16 +130,13 @@ public:
 	long LoadFromFile(char *FileName, char *user_password, char *owner_password);
 	long LoadFromFile(char *FileName, char *user_password);
 	long LoadFromFile(char *sFileName);
-	bool LoadFromMuPDF();
 	void SetUserPassword(char *user_password);
 	void SetOwnerPassword(char *owner_password);
 	void SetSliceBox(int x, int y, int w, int h);
 	long RenderPage(long lhWnd);
 	long RenderPage(long lhWnd, bool bForce);
 	long RenderPage(long lhWnd, bool bForce, bool enableThread);
-	long RenderPageMuPDF(long lhWnd, bool bForce, bool enableThread);
 	long RenderPageThread(long lhWnd, bool bForce);
-	long RenderPageThreadMuPDF(long lhWnd, bool bForce);
 	long GetCurrentPage(void);
 	void SetCurrentPage(long newVal);
 	long GetCurrentX(void);
@@ -180,10 +158,6 @@ public:
 	int SaveTxt(char *fileName,int firstPage, int lastPage, bool htmlMeta,bool physLayout, bool rawOrder);
 	int SaveHtml(char *outFileName, int firstPage, int lastPage, double zoom, bool noFrames, bool complexMode, bool htmlLinks,bool ignoreImages, bool outputHiddenText, char *encName, char *imgExt, int jpegQuality);
 	int SaveXML(char *outFilename, int firstPage, int lastPage, char *encName);
-
-	int SaveSWF(char *fileName, SaveSWFParams *params);
-	void CancelSwfSave();
-	bool SwfIsBusy();
 
 	void CancelJpgSave();
 	//Returns true if exists a background thread of jpg export is running
@@ -242,44 +216,6 @@ public:
 	wchar_t * getProducer();
 	char * getCreationDate();
 	char * getLastModifiedDate();
-
-	//Add support for MuPDF
-	bool SupportsMuPDF(){
-#ifndef _MUPDF_H_
-		return false;
-#else
-		if(m_LastOpenedFile->getLength()==0 && this->m_LastOpenedStream!=0)
-			return false;
-		else
-			return true;
-#endif
-	}
-
-	bool GetUseMuPDF(){
-		#ifndef _MUPDF
-			return false;
-		#endif
-		return _useMuPDF;
-	}
-	void SetUseMuPDF(bool buse){
-		#ifdef _MUPDF
-			_useMuPDF =buse;
-			//InvalidateBitmapCache();
-		#endif
-	}
-};
-
-struct ExportSWFParams {
-	PROGRESSHANDLE m_ExportSwfProgressHandle;
-	NOTIFYHANDLE m_ExportSwfFinishHandle;
-	HANDLE hExportSwfCancel;
-	HANDLE hExportSwfCancelled;
-	HANDLE hExportSwfFinished;
-
-	PDFDoc * doc;
-	char *fileName;
-	char **argv;
-	int argc;
 };
 
 struct ExportParams{
