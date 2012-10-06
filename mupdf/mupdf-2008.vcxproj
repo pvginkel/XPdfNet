@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>mupdf</ProjectName>
+    <ProjectGuid>{63657C80-EADB-4FBC-A557-BE52F318CCDD}</ProjectGuid>
+    <RootNamespace>mupdf</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Configuration)\</IntDir>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>fitz; ..\jpeg; fitzdraw; ..\zlib; mupdf; ..\freetype-2.3.1\include; jbig2dec; ..\libopenjpeg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32; _WIN32; _DEBUG; OPJ_STATIC; NEED_MATH; NEED_GETTIMEOFDAY; HAVE_JBIG2DEC; USE_HINTING; HAVE_OPENJPEG; HAVE_STRING_H=1; NOCJKFONT; NOCJK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <Lib>
+      <AdditionalDependencies>..\bin\freetype231_D.lib;..\bin\libjpeg_D.lib;..\bin\zlib_D.lib;..\bin\mapsfonts.lib;gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>..\bin\$(ProjectName)_D.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>fitz; ..\jpeg; fitzdraw; ..\zlib; mupdf; ..\freetype-2.3.1\include; jbig2dec; ..\libopenjpeg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32; _WIN32; _DEBUG; OPJ_STATIC; NEED_MATH; NEED_GETTIMEOFDAY; HAVE_JBIG2DEC; USE_HINTING; HAVE_OPENJPEG; HAVE_STRING_H=1; NOCJKFONT; NOCJK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <Lib>
+      <AdditionalDependencies>..\bin\freetype231_D.lib;..\bin\libjpeg_D.lib;..\bin\zlib_D.lib;..\bin\mapsfonts.lib;gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>..\bin\$(ProjectName)_D.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>false</OmitFramePointers>
+      <AdditionalIncludeDirectories>fitz; ..\jpeg; fitzdraw; ..\zlib; mupdf; ..\freetype-2.3.1\include; jbig2dec; ..\libopenjpeg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32; _WIN32; OPJ_STATIC; NEED_MATH; NEED_GETTIMEOFDAY; HAVE_JBIG2DEC; USE_HINTING; HAVE_OPENJPEG; HAVE_STRING_H=1;  NOCJKFONT; NOCJK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <AdditionalDependencies>..\bin\freetype231.lib;..\bin\libjpeg.lib;..\bin\zlib.lib;..\bin\mapsfonts.lib;gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>..\bin\$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>false</OmitFramePointers>
+      <AdditionalIncludeDirectories>fitz; ..\jpeg; fitzdraw; ..\zlib; mupdf; ..\freetype-2.3.1\include; jbig2dec; ..\libopenjpeg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32; _WIN32; OPJ_STATIC; NEED_MATH; NEED_GETTIMEOFDAY; HAVE_JBIG2DEC; USE_HINTING; HAVE_OPENJPEG; HAVE_STRING_H=1;  NOCJKFONT; NOCJK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <AdditionalDependencies>..\bin\freetype231.lib;..\bin\libjpeg.lib;..\bin\zlib.lib;..\bin\mapsfonts.lib;gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>..\bin\$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="mupdf\pdf_annot.c" />
+    <ClCompile Include="mupdf\pdf_build.c" />
+    <ClCompile Include="mupdf\pdf_cmap.c" />
+    <ClCompile Include="mupdf\pdf_cmap_load.c" />
+    <ClCompile Include="mupdf\pdf_cmap_parse.c" />
+    <ClCompile Include="mupdf\pdf_cmap_table.c" />
+    <ClCompile Include="mupdf\pdf_colorspace.c" />
+    <ClCompile Include="mupdf\pdf_crypt.c" />
+    <ClCompile Include="mupdf\pdf_debug.c" />
+    <ClCompile Include="mupdf\pdf_font.c" />
+    <ClCompile Include="mupdf\pdf_fontagl.c" />
+    <ClCompile Include="mupdf\pdf_fontenc.c" />
+    <ClCompile Include="mupdf\pdf_fontfile.c" />
+    <ClCompile Include="mupdf\pdf_fontmtx.c" />
+    <ClCompile Include="mupdf\pdf_function.c" />
+    <ClCompile Include="mupdf\pdf_image.c" />
+    <ClCompile Include="mupdf\pdf_interpret.c" />
+    <ClCompile Include="mupdf\pdf_lex.c" />
+    <ClCompile Include="mupdf\pdf_nametree.c" />
+    <ClCompile Include="mupdf\pdf_open.c" />
+    <ClCompile Include="mupdf\pdf_outline.c" />
+    <ClCompile Include="mupdf\pdf_page.c" />
+    <ClCompile Include="mupdf\pdf_pagetree.c" />
+    <ClCompile Include="mupdf\pdf_parse.c" />
+    <ClCompile Include="mupdf\pdf_pattern.c" />
+    <ClCompile Include="mupdf\pdf_repair.c" />
+    <ClCompile Include="mupdf\pdf_shade.c" />
+    <ClCompile Include="mupdf\pdf_store.c" />
+    <ClCompile Include="mupdf\pdf_stream.c" />
+    <ClCompile Include="mupdf\pdf_type3.c" />
+    <ClCompile Include="mupdf\pdf_unicode.c" />
+    <ClCompile Include="mupdf\pdf_xobject.c" />
+    <ClCompile Include="mupdf\pdf_xref.c" />
+    <ClCompile Include="fitz\ansi_stack.c" />
+    <ClCompile Include="fitz\base_cpudep.c" />
+    <ClCompile Include="fitz\base_error.c" />
+    <ClCompile Include="fitz\base_geometry.c" />
+    <ClCompile Include="fitz\base_getopt.c" />
+    <ClCompile Include="fitz\base_hash.c" />
+    <ClCompile Include="fitz\base_matrix.c" />
+    <ClCompile Include="fitz\base_memory.c" />
+    <ClCompile Include="fitz\base_string.c" />
+    <ClCompile Include="fitz\base_time.c" />
+    <ClCompile Include="fitz\base_unicode.c" />
+    <ClCompile Include="fitz\crypt_aes.c" />
+    <ClCompile Include="fitz\crypt_arc4.c" />
+    <ClCompile Include="fitz\crypt_crc32.c" />
+    <ClCompile Include="fitz\crypt_md5.c" />
+    <ClCompile Include="fitz\dev_bbox.c" />
+    <ClCompile Include="fitz\dev_draw.c" />
+    <ClCompile Include="fitz\dev_gdiplus.cpp" />
+    <ClCompile Include="fitz\dev_list.c" />
+    <ClCompile Include="fitz\dev_null.c" />
+    <ClCompile Include="fitz\dev_text.c" />
+    <ClCompile Include="fitz\dev_trace.c" />
+    <ClCompile Include="fitz\filt_basic.c" />
+    <ClCompile Include="fitz\filt_dctd.c" />
+    <ClCompile Include="fitz\filt_faxd.c" />
+    <ClCompile Include="fitz\filt_flate.c" />
+    <ClCompile Include="fitz\filt_jbig2d.c" />
+    <ClCompile Include="fitz\filt_jpxd.c" />
+    <ClCompile Include="fitz\filt_lzwd.c" />
+    <ClCompile Include="fitz\filt_predict.c" />
+    <ClCompile Include="fitz\obj_array.c" />
+    <ClCompile Include="fitz\obj_dict.c" />
+    <ClCompile Include="fitz\obj_parse.c" />
+    <ClCompile Include="fitz\obj_print.c" />
+    <ClCompile Include="fitz\obj_simple.c" />
+    <ClCompile Include="fitz\res_colorspace.c" />
+    <ClCompile Include="fitz\res_font.c" />
+    <ClCompile Include="fitz\res_path.c" />
+    <ClCompile Include="fitz\res_pixmap.c" />
+    <ClCompile Include="fitz\res_shade.c" />
+    <ClCompile Include="fitz\res_text.c" />
+    <ClCompile Include="fitz\stm_buffer.c" />
+    <ClCompile Include="fitz\stm_open.c" />
+    <ClCompile Include="fitz\stm_read.c" />
+    <ClCompile Include="fitz\util_getopt.c" />
+    <ClCompile Include="fitz\util_gettimeofday.c" />
+    <ClCompile Include="fitzdraw\archarm.c" />
+    <ClCompile Include="fitzdraw\archport.c" />
+    <ClCompile Include="fitzdraw\blendmodes.c" />
+    <ClCompile Include="fitzdraw\glyphcache.c" />
+    <ClCompile Include="fitzdraw\imagedraw.c" />
+    <ClCompile Include="fitzdraw\imagescale.c" />
+    <ClCompile Include="fitzdraw\imagesmooth.c" />
+    <ClCompile Include="fitzdraw\imageunpack.c" />
+    <ClCompile Include="fitzdraw\meshdraw.c" />
+    <ClCompile Include="fitzdraw\pathfill.c" />
+    <ClCompile Include="fitzdraw\pathscan.c" />
+    <ClCompile Include="fitzdraw\pathstroke.c" />
+    <ClCompile Include="fitzdraw\porterduff.c" />
+    <ClCompile Include="jbig2dec\getopt.c" />
+    <ClCompile Include="jbig2dec\getopt1.c" />
+    <ClCompile Include="jbig2dec\jbig2.c" />
+    <ClCompile Include="jbig2dec\jbig2_arith.c" />
+    <ClCompile Include="jbig2dec\jbig2_arith_iaid.c" />
+    <ClCompile Include="jbig2dec\jbig2_arith_int.c" />
+    <ClCompile Include="jbig2dec\jbig2_generic.c" />
+    <ClCompile Include="jbig2dec\jbig2_halftone.c" />
+    <ClCompile Include="jbig2dec\jbig2_huffman.c" />
+    <ClCompile Include="jbig2dec\jbig2_image.c" />
+    <ClCompile Include="jbig2dec\jbig2_image_pbm.c" />
+    <ClCompile Include="jbig2dec\jbig2_metadata.c" />
+    <ClCompile Include="jbig2dec\jbig2_mmr.c" />
+    <ClCompile Include="jbig2dec\jbig2_page.c" />
+    <ClCompile Include="jbig2dec\jbig2_refinement.c" />
+    <ClCompile Include="jbig2dec\jbig2_segment.c" />
+    <ClCompile Include="jbig2dec\jbig2_symbol_dict.c" />
+    <ClCompile Include="jbig2dec\jbig2_text.c" />
+    <ClCompile Include="jbig2dec\jbig2dec.c" />
+    <ClCompile Include="jbig2dec\sha1.c" />
+    <ClCompile Include="..\libopenjpeg\bio.c" />
+    <ClCompile Include="..\libopenjpeg\cio.c" />
+    <ClCompile Include="..\libopenjpeg\dwt.c" />
+    <ClCompile Include="..\libopenjpeg\event.c" />
+    <ClCompile Include="..\libopenjpeg\image.c" />
+    <ClCompile Include="..\libopenjpeg\j2k.c" />
+    <ClCompile Include="..\libopenjpeg\j2k_lib.c" />
+    <ClCompile Include="..\libopenjpeg\jp2.c" />
+    <ClCompile Include="..\libopenjpeg\jpt.c" />
+    <ClCompile Include="..\libopenjpeg\mct.c" />
+    <ClCompile Include="..\libopenjpeg\mqc.c" />
+    <ClCompile Include="..\libopenjpeg\openjpeg.c" />
+    <ClCompile Include="..\libopenjpeg\pi.c" />
+    <ClCompile Include="..\libopenjpeg\raw.c" />
+    <ClCompile Include="..\libopenjpeg\t1.c" />
+    <ClCompile Include="..\libopenjpeg\t2.c" />
+    <ClCompile Include="..\libopenjpeg\tcd.c" />
+    <ClCompile Include="..\libopenjpeg\tgt.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="mupdf\mupdf.h" />
+    <ClInclude Include="fitz\ansi_stack.h" />
+    <ClInclude Include="fitz\filt_faxd.h" />
+    <ClInclude Include="fitz\fitz.h" />
+    <ClInclude Include="jbig2dec\config_types.h" />
+    <ClInclude Include="jbig2dec\config_win32.h" />
+    <ClInclude Include="jbig2dec\getopt.h" />
+    <ClInclude Include="jbig2dec\jbig2.h" />
+    <ClInclude Include="jbig2dec\jbig2_arith.h" />
+    <ClInclude Include="jbig2dec\jbig2_arith_iaid.h" />
+    <ClInclude Include="jbig2dec\jbig2_arith_int.h" />
+    <ClInclude Include="jbig2dec\jbig2_generic.h" />
+    <ClInclude Include="jbig2dec\jbig2_huffman.h" />
+    <ClInclude Include="jbig2dec\jbig2_hufftab.h" />
+    <ClInclude Include="jbig2dec\jbig2_image.h" />
+    <ClInclude Include="jbig2dec\jbig2_metadata.h" />
+    <ClInclude Include="jbig2dec\jbig2_mmr.h" />
+    <ClInclude Include="jbig2dec\jbig2_priv.h" />
+    <ClInclude Include="jbig2dec\jbig2_symbol_dict.h" />
+    <ClInclude Include="jbig2dec\jbig2_text.h" />
+    <ClInclude Include="jbig2dec\os_types.h" />
+    <ClInclude Include="jbig2dec\sha1.h" />
+    <ClInclude Include="..\libopenjpeg\bio.h" />
+    <ClInclude Include="..\libopenjpeg\cio.h" />
+    <ClInclude Include="..\libopenjpeg\dwt.h" />
+    <ClInclude Include="..\libopenjpeg\event.h" />
+    <ClInclude Include="..\libopenjpeg\fix.h" />
+    <ClInclude Include="..\libopenjpeg\image.h" />
+    <ClInclude Include="..\libopenjpeg\int.h" />
+    <ClInclude Include="..\libopenjpeg\j2k.h" />
+    <ClInclude Include="..\libopenjpeg\j2k_lib.h" />
+    <ClInclude Include="..\libopenjpeg\jp2.h" />
+    <ClInclude Include="..\libopenjpeg\jpt.h" />
+    <ClInclude Include="..\libopenjpeg\mct.h" />
+    <ClInclude Include="..\libopenjpeg\mqc.h" />
+    <ClInclude Include="..\libopenjpeg\openjpeg.h" />
+    <ClInclude Include="..\libopenjpeg\opj_includes.h" />
+    <ClInclude Include="..\libopenjpeg\pi.h" />
+    <ClInclude Include="..\libopenjpeg\raw.h" />
+    <ClInclude Include="..\libopenjpeg\t1.h" />
+    <ClInclude Include="..\libopenjpeg\t1_luts.h" />
+    <ClInclude Include="..\libopenjpeg\t2.h" />
+    <ClInclude Include="..\libopenjpeg\tcd.h" />
+    <ClInclude Include="..\libopenjpeg\tgt.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\freetype-2.3.1\builds\win32\visualc\freetype-2008.vcxproj">
+      <Project>{78b079bd-9fc7-4b9e-b4a6-96da0f00248b}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\jpeg\libjpg-2008.vcxproj">
+      <Project>{b1f575d7-1fe6-469f-8bed-e393e906908b}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\mapsfonts\mapsfonts-2008.vcxproj">
+      <Project>{d1c99b00-1570-4285-aacc-8783adfa8c46}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\zlib\zlib-2008.vcxproj">
+      <Project>{0457835d-4c6e-4577-a33a-7184b9c99e84}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;udFromPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="udTopage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 20</value>
+  </data>
+  <data name="&gt;&gt;btnExport.Name" xml:space="preserve">
+    <value>btnExport</value>
+  </data>
+  <data name="&gt;&gt;dlgSave.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="optPrintCurrent.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 79</value>
+  </data>
+  <data name="&gt;&gt;udTopage.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="udResolution.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 20</value>
+  </data>
+  <data name="&gt;&gt;udQuality.Name" xml:space="preserve">
+    <value>udQuality</value>
+  </data>
+  <data name="optFromPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 104</value>
+  </data>
+  <data name="optPrintCurrent.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnExport.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pgBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="optPrintCurrent.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 24</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btnExport.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 13</value>
+  </data>
+  <data name="cmdChoseFile.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="optFromPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 24</value>
+  </data>
+  <data name="&gt;&gt;optFromPage.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>DPI</value>
+  </data>
+  <data name="txtFileName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 20</value>
+  </data>
+  <data name="&gt;&gt;udTopage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmdChoseFile.Name" xml:space="preserve">
+    <value>cmdChoseFile</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>193, 56</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 14</value>
+  </data>
+  <data name="&gt;&gt;optPrintAll.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="cmdChoseFile.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;optPrintAll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 13</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optPrintAll.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Calidad:</value>
+  </data>
+  <data name="&gt;&gt;udFromPage.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;pgBar.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmExportJpg</value>
+  </data>
+  <data name="udResolution.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="optPrintAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 24</value>
+  </data>
+  <data name="&gt;&gt;udQuality.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;txtFileName.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Archivo:</value>
+  </data>
+  <data name="udQuality.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;pgBar.Name" xml:space="preserve">
+    <value>pgBar</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Exportar a Jpeg</value>
+  </data>
+  <data name="&gt;&gt;cmdChoseFile.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>a página</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;udFromPage.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="udResolution.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;optFromPage.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="udTopage.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;udQuality.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="udTopage.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="optPrintAll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 81</value>
+  </data>
+  <data name="label7.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;udFromPage.Name" xml:space="preserve">
+    <value>udFromPage</value>
+  </data>
+  <data name="btnExport.Location" type="System.Drawing.Point, System.Drawing">
+    <value>191, 214</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>344, 141</value>
+  </data>
+  <data name="udFromPage.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="pgBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 185</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;udResolution.Name" xml:space="preserve">
+    <value>udResolution</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 56</value>
+  </data>
+  <data name="pgBar.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="btnExport.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="optFromPage.Text" xml:space="preserve">
+    <value>Desde página</value>
+  </data>
+  <data name="dlgSave.Title" xml:space="preserve">
+    <value>Save image</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="udResolution.Location" type="System.Drawing.Point, System.Drawing">
+    <value>67, 22</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="cmdChoseFile.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="&gt;&gt;pgBar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>1024, 278</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAMDAAAAEAIACoJQAAFgAAACgAAAAwAAAAYAAAAAEAIAAAAAAAAAAAABILAAASCwAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAZAAAAOwAA
+        AEYAAAA8AAAAMQAAACYAAAAdAAAAFgAAABAAAAAKAAAABQAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAYAAAAqAAAAXgAAAHMAAABuAAAAaAAAAGAAAABWAAAASwAAAEAAAAA0AAAAKQAAAB8AAAAYAAAAEgAA
+        AAwAAAAHAAAAAwAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAMVyABvsjge+znsCx5pSALdoMQChMBEAjQQAAH8AAAB6AAAAdQAAAHAAAABqAAAAYwAA
+        AFkAAABOAAAAQwAAADgAAAAtAAAAIgAAABoAAAATAAAADgAAAAgAAAAEAAAAAQAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAOtyAD//tEn//+nH///bpf//ynr/+7VS/OeZJ+rOfAjXpVsAvng6
+        AKhBGwCTDgAAgwAAAHwAAAB3AAAAcQAAAGwAAABlAAAAXAAAAFIAAABGAAAAOwAAADAAAAAlAAAAHAAA
+        ABUAAAAPAAAACgAAAAUAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOpsAD3/u1r////////t3v//9/H///v5///3
+        6///7tX//96s///Qif/9vFr98KQ38tWED9u2aADHhUQArVUlAJodCACHAAAAfQAAAHgAAABzAAAAbQAA
+        AGcAAABfAAAAVQAAAEoAAAA+AAAAMwAAACgAAAAfAAAAFwAAAA4AAAAFAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOptAD3/u1n///z7///T
+        of//1KP//9ep///ctv//48f//+7f///27///+/n///r1///w2v//5Lv//9KO///Ca//0qT304ZAd5L1u
+        AMuYUQC3YS0AnjARAI0AAAB+AAAAegAAAHUAAABvAAAAaQAAAGIAAABYAAAATQAAADUAAAATAAAAAgAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOpt
+        AD3/vVv//fTw//WyeP/4vIb/+8WT//3Onv//1KX//9ep///arv//27H//9+7///my///7d3///fy///7
+        +///+/j///Xm///nwv//2J///8Vx//mzTvrlliLnzXsG1aBWALt1OQCmOBUAkA4AAIIAAAB7AAAAdgAA
+        AFkAAAAkAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAOptAD3/vl3/++/p/+yRSv/skUr/7ZVQ/+6ZVf/woWD/8qpt//Sucf/3t33/+sWS//3Q
+        o//+1an//9qx///gvP//5MP//+jP///w4f//9+////3+///9+///9+3//+vQ///cqP//zYL//LlW/e6g
+        Mu/TgQvap2EAvhEKAGgAAAApAAAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAOptAD3/vl3/+/Dq/+2WUf/tllD/7ZZR/+2WUP/slE7/649G//C0
+        hv/ywZr/7Zxb/+2XUv/wqW7/8qtv//Wze//3vYv/+sma//vNnv/906f//923///lyP//7Nb///Pl///6
+        9f///f7////////68///79j//6w2/04jAHsAAAApAAAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOptAD3/vl7/+/Dq/+2WUf/tllD/7ZdS/+2X
+        Uv/tl1L/7JJJ//LCm//58+3/9+jb/+2dXP/47+j/7656/+uLP//skUn/7JJK//Cygf/0yaX/87yO//Oz
+        fP/2vYv/+cqe//zVrv/+3r7//+XL///u2////////rZN/U4gAHsAAAApAAAABQAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOptAD3/vl7/+/Dq/+2W
+        Uf/tllD/7ZdS/+2XUv/tl1L/7ZdT/+uOQ//vq3T/+fn4/++qc//49/X/8sCW/+yORP/sjkP/9M6v//n+
+        ///13Mn/+PLs//HBmv/riDv/7JNM/+2WUf/unVv/8aZp//Ovdv/99/X//rdO/U4gAHoAAAAoAAAABAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOpt
+        AD3/vl7/+/Dq/+2WUf/tllD/7ZdS/+2XUv/tl1L/7ZdS/+yTS//vqG7/+PPt/++qc//48Or/+Pbx//bi
+        0v/upWr/+fb0//PEnv/sk0v/+Ozi//TStv/sjUL/7ZdR/+2WUf/tlU//7JJL/+uORP/88ez//rhR/U8h
+        AHkAAAAlAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAOptAD3/vl7/+/Dq/+2WUf/tllD/7ZdS/+2XUv/tl1L/7ZdS/+yTS//vqXD/+PTv/++r
+        c//48uz/7654//bh0P/128X/+PLs//CwfP/wrnr/+fHn//LCnP/sj0X/7ZdS/+2XUv/tl1L/7ZZR/+yU
+        Tf/88u3//rhQ/VAhAHcAAAAjAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAOptAD3/v17/++/o/+yRSf/skUn/7JNL/+yTTf/slE7/7ZVQ/+yS
+        Sv/vqXH/+Pf1/++td//5+vr/9NO4//jw6P/zza3/9NO3//jv5v/vo2b/7p5e/+2aVv/tllH/7ZdS/+2X
+        Uv/tl1L/7ZZR/+yVTv/87eP/+rBC+jERAGwAAAAjAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOptAD3/vVz//ff2//a5hf/0snn/8qxx//Gl
+        aP/voWH/7ptY/+2VT//tmlb/7614/+2ZVv/wuIz/89G0//LIpf/tmVX/7JVQ//TWu//48Of/+PDp/++r
+        df/tk0r/7ZdS/+2XUv/tl1L/7ZZR/+yVT//87N//+a89+SQKAGgAAAAjAAAAAgAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOptAD3/u1r////////h
+        v///4r///+PA///gvv/+3br//dq1//zXsP/7z6T/+MKS//fAkP/0s3z/86xx//GkZP/womP/751b/+2U
+        Tf/tnFv/7p5f/+yVT//skEj/7JBI/+yRSf/skkv/7JNM/+yTTP/87N//+q8/+SgMAGoAAAAjAAAAAgAA
+        AAAAAAAAAAAAAAAAAAAAAAAFAAAADgAAABAAAAAHAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOpt
+        AD3/vFr///7////euf//3rr//9+8///gvv//4sD//+XF///q0P//79b///DZ///y3v//8t7//+zV///o
+        z///6M///uPI//3dv//717T/+tCp//jKof/2wZX/9bmI//OyfP/xq3L/76Jk/+2aV//87eH/+q8/+SgM
+        AGoAAAAjAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAALAAAAJQAAADQAAAAlAAAADwAAAAMAAAAAAAAAAAAA
+        AAAAAAAAAAAAAOptAD3/vFr///7////fu///37z//+C+///gv///5cj//OG//87Ln/+ls37/kqlw/5ir
+        df+6wJP/8uDB///x3f//6tP//+nR///r1f//7dj//+7b///v3f//8eD///Li///x4P//793//+zZ//7p
+        1v//+/j/+qw5+SgMAGoAAAAjAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAIgAAAEQAAABPAAAAOgAA
+        AB0AAAALAAAAAgAAAAAAAAAAAAAAAOptAD3/vFr///7////gvv//4L7//+HA///ozP+8wZD/HG4W/wBc
+        AP8Vgh3/RKtI/y+eNP8Kdg3/GWwT/36kZv/4587//+/a///p0v//6tT//+vV///r1///7Nj//+3Z///u
+        2///7t3//+/f///y5f///v3/+qw4+SgMAGkAAAAiAAAAAgAAAAAAAAAAAAAAAAAAAAAAAACKAAAAsgIQ
+        EkoAAABiAAAAaQAAAFAAAAAyAAAAGQAAAAgAAAABAAAAAOptAD3/vFr///7////hwP//4cD//+LC///l
+        yP/n2LP/wcWZ/6O4hv9WkEX/Nps4/3Xfdv8fiB7/AFwI/wBYAP80eRv/6OHA///w3P//69b//+vX///s
+        2P//7dr//+3b///u3f//797//+/f///x4////fz/+qw4+SoNAGYAAAAfAAAAAQAAAAAAAAAAAAAAAAAA
+        AAAEHiM8CC41pCSZsu8Uc4SWAQQFewAAAHYAAABlAAAASgAAACgAAAANAAAAAupsAD3/vFr////////i
+        wv//4sL//+PE///jxf//5sz//+vU///v2///8Nz/XZJK/xmCG/8SeRD/CG4J/wJ6Uv8AdFf/OoSI//ns
+        3f//7tn//+3a///t2v//7tz//+7d///v3///8OD///Dh///y5v///fz/+as4+SgMAGMAAAAeAAAAAQAA
+        AAAAAAAAAAAAAAAAAAAUq8UBG67MST/P9v8+2Pr/J6zI4AtHUqEAAAB9AAAAcwAAAFgAAAAtAAAADOZq
+        AD7/vFr////////jxP//48X//+TI///lyv//5sv//+bM///mzf//79r/1tKt/wBeAP8Abzb/BW0L/wV2
+        O/8is/v/AoDA/5Kut///99///+7c///u3f//797///Df///w4f//8eL///Hj///z5////Pr/8KY68BUB
+        AF4AAAAeAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAFavFEDKx2eVAzfT/Qdz//zrP8/8hm7PYBSYwkwAA
+        AHYAAABVAAAAJs5fAEP/vFr////////kx///5Mj//+XK///my///5s3//+fO///oz///69X/9ePL/yF1
+        CP8Aczv/AJK//w2Vsf8mr+f/Jqji/0OLrf//8d3///De///v3///8OD///Hh///x4///8uT///Ll///1
+        6///+/b/76Mz7xMAAF4AAAAeAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACOozKY+t+T/P9H2/zzb
+        //85zO//HpW39QImNpoAAAByAAAAS5pHAFL7uVn////////lyv//5cr//+bM///nzv//58///+jQ///p
+        0f//69T//OjU/yV7eP8AiKH/AZza/xCr6f8mqd7/Ma7n/zONuP//7Nv///Hg///x4v//8uX///Lj///y
+        5f//8+b///Pn///37///+e//750l8BUCAF4AAAAeAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABio
+        xVsxqtf/Orvn/0nQ7/9Lzun/Q7bT/xOFqe0CFR+LAAAAa2ItAG7qrVT//Pz8///mzP//5s3//+fO///o
+        0P//6dH//+nS///q1P//69X///LZ/0KJs/8Aisv/A6DW/y9xkP90Ymr/a2Ju/1yBl///++v///Lj///u
+        3P//69f///Xr///z5///9Oj///Tp///48f//+e//750m8BUCAF4AAAAeAAAAAQAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAABauyBggqNDqMK7U/3/P4v/Z8PT/ldfl/0a10/8IbI7ZAAICfUAeAIjKlUf/8fHx//7m
+        zf//58///+jR///p0v//6tP//+rU///r1v//69f///Xc/6i6v/8Aca//FXed/6NWUv/hqqf/jl9c/2kv
+        K//m1sr////0///p0v//zZf//+rU///48P//9er///Xr///58///+fD/750m8BUCAF4AAAAeAAAAAQAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMjLOUJqnK/3jI3P/O6vL/6vb5/5DS5P8xqsv/BVFvwDIX
+        AJimejv/1tbW//bgyf//6ND//+nT///q1P//6tX//+vW///s2P//7Nn//+7a///03/9qqMD/IkZk/5tO
+        S/+HVlb/x7Ky/7yVlv99Skj/8Ofe///w1f//yY7//82W///p0f//+vX///fu///59P//+fD/8J4n7xUC
+        AFwAAAAdAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJbZwTB4my1Tiwz/+Iz+H/2u/1/9vw
+        9f95yt7/IJ7B/h46QLuMZzL/srKy/+HOuf/65c///+rV///r1v//7Nf//+zY///t2v//7dv//+7c///w
+        3v///Oj/x7u2/10pKf+pgoL/6Nvb//////+6hoj/hFhZ//rgvv//z5b//8qR//7Ijv/+48f///z4///7
+        +P//+fD/8J4n7xYCAFkAAAAbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACHGfOwuS
+        ufRKttP/mtbm/+f1+P/J6PH/YsDZ/xaJqvRxYTz/k5OT/72tnf/p18P//OjU///s2P//7dr//+3a///u
+        3P//793//+/e///v4P//8uL////u/5NqZv+IVFb/v56e/+fe3v//8fH/omdr/5RgTf//05n//tKf//rI
+        kf/2tnH/+dev////////+vL/7p0m7RECAFgAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAZ1omcUm8D/XLzX/67e6//t9/r/seDs/0u31P8qe43/gIKD/5qOgf/IuKn/8N7M//7s
+        2f//7dz//+7c///v3v//79////Dg///x4v//8eP///3v/9zFu/9qNTX/onR0/8qtrf/y7u7/+9zc/49O
+        U/+ka0v//fHc//759P/638D/87t9//TNn//+9Of/5Jkq5AAAAFEAAAAZAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEfKiaIaXI/2/E2//B5vD/6vb5/5nW5f83rc3/QX6V/4Z8
+        cv+kmIz/1MW2//bm1P/+7t3//+/f///w4P//8OH///Hi///y5P//8uX///Tn////8/+QaGT/dkJC/6+F
+        hf/Vv7//+vb2/+u5uv+SVFb/8e/u//////////////79//jiyP/33br/5p404QAAAD8AAAARAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKbp0LBYSvxjGszf+Ay+D/1O30/+Dy
+        9/+BzeD/JqLF/1h2f/+LgXf/sKSZ/9/Rwv/669z///Dh///x4v//8uP///Lk///z5v//8+j///To////
+        9f/eysD/YS8v/45eX/+5k5P/4NPU//jq6v/xzc7//////////////////////////////v3/8aQ04gAA
+        AB0AAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACG+eKAmO
+        t+pDtNL/k9Pk/+Pz9//Q6/P/asTb/yGTtv9vd3f/komA/7uwpP/o287//O7g///y5P//8uX///Pm///0
+        6P//9On///Xr///27f////n/kGln/2M1Nv+dbm7/w6Sk/+rf3///////////////////////////////
+        ////xXL/7YUAqAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAZzoVQRmL7/VbvW/6fb6f/r9/r/uePu/1O61v8qhaL/f3t1/5mRiP/HvbL/7+PX//3x
+        5P//8+j///To///16v//9ev///bt///27v////r/38zF/1cnKP9xRUX/o3V3/9C2uP/+////////////
+        ///////////////Idf/xhAC2ZSQACgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEeaWDG6HE/2jB2v+64+7/7Pf6/6La6P8/sdD/PHyR/4V+
+        d/+impL/0si+//Xq3//+9On///Xr///27P//9+7///fv///48P//+fL////8/6OCgP9wRkf/fUlD/7OS
+        iv///////////////////////8h3//CDALUjAAAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKbp0CBIGstiuqzP96yt7/zuvy/+T0
+        +P+J0eL/LKbH/1Z4hP+KhH7/rqaf/97VzP/58Ob///bt///37v//+PD///jx///58v//+fP///z2///+
+        +f/59/j/5beB//DTsf//////////////////yHb/8YMAuQAAAAcAAAABAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACW+eGw+J
+        rec8sdD/jdDi/97x9//W7vT/csjd/yOXuv9reX3/kIqF/7myq//n4Nj//PTs///48P//+PL///nz///6
+        9P//+vb///v3///++///////78CG//z06P/////////////JeP/zhQDFhzsADwAAAAEAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAGRvXm8Tlrn/TrjU/6DY5//p9vn/wubv/1y+2P8piKf/fX16/5iTjv/FwLn/7ufh//33
+        8P//+vT///r1///79v//+/j///z5///+/f/99u7/78qb/////////////9CJ//OHAMaHOAAPAAAAAQAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAOpsAD2PnHr/F53C/2G/2P+04ez/7ff6/6rd6v9GtNL/OX6X/4WB
+        fv+hnZn/0czH//Tv6f/++vX///v3///8+P///fr///37///////78OP/9uPL////////0In/84cAxY4y
+        ABAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        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
+        AAB//wAA//AAAP//AAD/8AAP//8AAP/wAP///wAA//AB////AAD//8H///8AAP//5////wAA////////
+        AAA=
+</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;udQuality.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;optPrintAll.Name" xml:space="preserve">
+    <value>optPrintAll</value>
+  </data>
+  <data name="&gt;&gt;optPrintCurrent.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="cmdChoseFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>26, 23</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="&gt;&gt;udResolution.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>%</value>
+  </data>
+  <data name="txtFileName.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="groupBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>168, 111</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>193, 25</value>
+  </data>
+  <data name="&gt;&gt;optPrintCurrent.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="cmdChoseFile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>324, 9</value>
+  </data>
+  <data name="&gt;&gt;cmdChoseFile.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="pgBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>344, 23</value>
+  </data>
+  <data name="&gt;&gt;udResolution.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="txtFileName.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="optPrintCurrent.Text" xml:space="preserve">
+    <value>Exportar página actual</value>
+  </data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 37</value>
+  </data>
+  <data name="&gt;&gt;cmdChoseFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="&gt;&gt;optPrintCurrent.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="udQuality.Location" type="System.Drawing.Point, System.Drawing">
+    <value>67, 53</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;udTopage.Name" xml:space="preserve">
+    <value>udTopage</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 13</value>
+  </data>
+  <data name="pgBar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="udTopage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>221, 109</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 25</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;udResolution.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;txtFileName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dlgSave.Name" xml:space="preserve">
+    <value>dlgSave</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Resolución:</value>
+  </data>
+  <data name="txtFileName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 11</value>
+  </data>
+  <data name="&gt;&gt;optFromPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 13</value>
+  </data>
+  <data name="&gt;&gt;udTopage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="udFromPage.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>275, 214</value>
+  </data>
+  <data name="optFromPage.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="btnExport.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;optPrintCurrent.Name" xml:space="preserve">
+    <value>optPrintCurrent</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;txtFileName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="optPrintAll.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;btnExport.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>372, 278</value>
+  </data>
+  <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="optPrintCurrent.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
+    <value>btnCancel</value>
+  </data>
+  <data name="udQuality.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 20</value>
+  </data>
+  <data name="&gt;&gt;optFromPage.Name" xml:space="preserve">
+    <value>optFromPage</value>
+  </data>
+  <data name="&gt;&gt;btnExport.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="udQuality.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="dlgSave.Filter" xml:space="preserve">
+    <value>Compressed file format Jpeg (*.jpg)|*.jpg</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>356, 240</value>
+  </data>
+  <data name="label7.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="udFromPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 20</value>
+  </data>
+  <data name="btnExport.Text" xml:space="preserve">
+    <value>&amp;Exportar</value>
+  </data>
+  <data name="&gt;&gt;txtFileName.Name" xml:space="preserve">
+    <value>txtFileName</value>
+  </data>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancelar</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="udFromPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>111, 109</value>
+  </data>
+  <data name="optPrintAll.Text" xml:space="preserve">
+    <value>Exporta todo</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 13</value>
+  </data>
+  <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <metadata name="dlgSave.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>English (United States)</value>
+  </metadata>
+</root>

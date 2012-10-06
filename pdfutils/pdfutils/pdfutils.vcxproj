@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5E3040DA-5B10-4D4F-AC72-281A4FE33793}</ProjectGuid>
+    <RootNamespace>pdfutils</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\xpdfWin\xpdf;..\..\xpdfWin\goo;..\..\xpdfWin\fofi;..\..\xpdfWin\splash;..\..\freetype-2.3.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>..\..\bin\xpdf_D.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>libcmt.lib; libcmtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <StackReserveSize>2097152</StackReserveSize>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\xpdfWin\xpdf;..\..\xpdfWin\goo;..\..\xpdfWin\fofi;..\..\xpdfWin\splash;..\..\freetype-2.3.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>..\..\bin\xpdf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>libcmt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\libAFPDFLib\jpeg.cpp" />
+    <ClCompile Include="pdfutils.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="..\..\jpeg\cdjpeg.c" />
+    <ClCompile Include="..\..\jpeg\jcapimin.c" />
+    <ClCompile Include="..\..\jpeg\jcapistd.c" />
+    <ClCompile Include="..\..\jpeg\jccoefct.c" />
+    <ClCompile Include="..\..\jpeg\jccolor.c" />
+    <ClCompile Include="..\..\jpeg\jcdctmgr.c" />
+    <ClCompile Include="..\..\jpeg\jchuff.c" />
+    <ClCompile Include="..\..\jpeg\jcinit.c" />
+    <ClCompile Include="..\..\jpeg\jcmainct.c" />
+    <ClCompile Include="..\..\jpeg\jcmarker.c" />
+    <ClCompile Include="..\..\jpeg\jcmaster.c" />
+    <ClCompile Include="..\..\jpeg\jcomapi.c" />
+    <ClCompile Include="..\..\jpeg\jcparam.c" />
+    <ClCompile Include="..\..\jpeg\jcphuff.c" />
+    <ClCompile Include="..\..\jpeg\jcprepct.c" />
+    <ClCompile Include="..\..\jpeg\jcsample.c" />
+    <ClCompile Include="..\..\jpeg\jctrans.c" />
+    <ClCompile Include="..\..\jpeg\jdapimin.c" />
+    <ClCompile Include="..\..\jpeg\jdapistd.c" />
+    <ClCompile Include="..\..\jpeg\jdatadst.c" />
+    <ClCompile Include="..\..\jpeg\jdatasrc.c" />
+    <ClCompile Include="..\..\jpeg\jdcoefct.c" />
+    <ClCompile Include="..\..\jpeg\jdcolor.c" />
+    <ClCompile Include="..\..\jpeg\jddctmgr.c" />
+    <ClCompile Include="..\..\jpeg\jdhuff.c" />
+    <ClCompile Include="..\..\jpeg\jdinput.c" />
+    <ClCompile Include="..\..\jpeg\jdmainct.c" />
+    <ClCompile Include="..\..\jpeg\jdmarker.c" />
+    <ClCompile Include="..\..\jpeg\jdmaster.c" />
+    <ClCompile Include="..\..\jpeg\jdmerge.c" />
+    <ClCompile Include="..\..\jpeg\jdphuff.c" />
+    <ClCompile Include="..\..\jpeg\jdpostct.c" />
+    <ClCompile Include="..\..\jpeg\jdsample.c" />
+    <ClCompile Include="..\..\jpeg\jdtrans.c" />
+    <ClCompile Include="..\..\jpeg\jerror.c" />
+    <ClCompile Include="..\..\jpeg\jfdctflt.c" />
+    <ClCompile Include="..\..\jpeg\jfdctfst.c" />
+    <ClCompile Include="..\..\jpeg\jfdctint.c" />
+    <ClCompile Include="..\..\jpeg\jidctflt.c" />
+    <ClCompile Include="..\..\jpeg\jidctfst.c" />
+    <ClCompile Include="..\..\jpeg\jidctint.c" />
+    <ClCompile Include="..\..\jpeg\jidctred.c" />
+    <ClCompile Include="..\..\jpeg\jmemansi.c" />
+    <ClCompile Include="..\..\jpeg\jmemmgr.c" />
+    <ClCompile Include="..\..\jpeg\jquant1.c" />
+    <ClCompile Include="..\..\jpeg\jquant2.c" />
+    <ClCompile Include="..\..\jpeg\jutils.c" />
+    <ClCompile Include="..\..\jpeg\rdbmp.c" />
+    <ClCompile Include="..\..\jpeg\rdcolmap.c" />
+    <ClCompile Include="..\..\jpeg\rdgif.c" />
+    <ClCompile Include="..\..\jpeg\rdppm.c" />
+    <ClCompile Include="..\..\jpeg\rdrle.c" />
+    <ClCompile Include="..\..\jpeg\rdswitch.c" />
+    <ClCompile Include="..\..\jpeg\rdtarga.c" />
+    <ClCompile Include="..\..\jpeg\transupp.c" />
+    <ClCompile Include="..\..\jpeg\wrbmp.c" />
+    <ClCompile Include="..\..\jpeg\wrgif.c" />
+    <ClCompile Include="..\..\jpeg\wrppm.c" />
+    <ClCompile Include="..\..\jpeg\wrrle.c" />
+    <ClCompile Include="..\..\jpeg\wrtarga.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\libAFPDFLib\jpeg.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="..\..\jpeg\cderror.h" />
+    <ClInclude Include="..\..\jpeg\cdjpeg.h" />
+    <ClInclude Include="..\..\jpeg\jchuff.h" />
+    <ClInclude Include="..\..\jpeg\jconfig.h" />
+    <ClInclude Include="..\..\jpeg\jdct.h" />
+    <ClInclude Include="..\..\jpeg\jdhuff.h" />
+    <ClInclude Include="..\..\jpeg\jerror.h" />
+    <ClInclude Include="..\..\jpeg\jinclude.h" />
+    <ClInclude Include="..\..\jpeg\jmemsys.h" />
+    <ClInclude Include="..\..\jpeg\jmorecfg.h" />
+    <ClInclude Include="..\..\jpeg\jpegint.h" />
+    <ClInclude Include="..\..\jpeg\jpeglib.h" />
+    <ClInclude Include="..\..\jpeg\jversion.h" />
+    <ClInclude Include="..\..\jpeg\transupp.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\jpeg\jmemdosa.asm" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
